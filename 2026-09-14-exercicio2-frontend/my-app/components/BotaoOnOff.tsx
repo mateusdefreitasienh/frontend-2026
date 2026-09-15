@@ -3,14 +3,20 @@
 import { useState } from "react";
 
 export default function BotaoOnOff() {
-  const [ligado, setLigado] = useState(false);
 
-  return (
-    <button
-      onClick={() => setLigado(!ligado)}
-      style={{ backgroundColor: ligado ? "green" : "red", color: "white" }}
-    >
-      {ligado ? "Ligado" : "Desligado"}
-    </button>
-  );
+    const [isOn, setIsOn] = useState(false)
+
+    return (
+        <div>
+            <button
+                onClick={() => {
+                    setIsOn(!isOn)
+                }}
+                style={{
+                    backgroundColor: isOn ? "green" : "red"
+                }}
+            >{isOn ? "Ligado" : "Desligado"}
+            </button>
+        </div>
+    );
 }

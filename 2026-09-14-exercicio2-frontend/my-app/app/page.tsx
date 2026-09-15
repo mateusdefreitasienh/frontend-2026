@@ -1,76 +1,52 @@
 "use client";
 
-import { useState } from "react";
+import BotaoInverter from "@/components/BotaoInverter";
 import BotaoOnOff from "@/components/BotaoOnOff";
-import BotaoOnOffControlado from "@/components/BotaoOnOffControlado";
-import ValidaNome from "@/components/ValidaNome";
-import ValidaSenha from "@/components/ValidaSenha";
-import ValidaSenhaEffect from "@/components/ValidaSenhaEffect";
-import ValidaSenhaRender from "@/components/ValidaSenhaRender";
-import InverterTexto from "@/components/InverterTexto";
-import RadioGenero from "@/components/RadioGenero";
-import SelectFrutas from "@/components/SelectFrutas";
-import TabContent from "@/components/TabContent";
+import BotaoOnOffComProps from "@/components/BotaoOnOffComProp";
+import CampoNome from "@/components/CampoNome";
+import CampoSenha from "@/components/CampoSenha";
+import CampoSenhaReRender from "@/components/CampoSenhaReRender";
+import CampoSenhaUseEffect from "@/components/CampoSenhaUseEffect";
+import RadioButtonGenero from "@/components/RadioButtonGenero";
+
+import { useState } from "react";
 
 export default function Home() {
-  const [ligado, setLigado] = useState(false);
+
+  const [ligado, setLigado] = useState(false)
+
 
   return (
-    <main style={{ padding: "20px" }}>
-      <h1>Exercício 2</h1>
+    <div>
+      <span>1 - Botao On Off</span>
+      <BotaoOnOff></BotaoOnOff>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 1: Botão ON/OFF (Estado próprio)</h2>
-        <BotaoOnOff />
-      </div>
+      <span>2 - Botao On Off Com Props</span>
+      <BotaoOnOffComProps
+        ligado={ligado}
+        onClick={() => {
+          setLigado(!ligado)
+        }}
+      >
+      </BotaoOnOffComProps>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 2: Botão ON/OFF (Props)</h2>
-        <BotaoOnOffControlado
-          ligado={ligado}
-          onClick={() => setLigado(!ligado)}
-        />
-      </div>
+      <span>3 - Campo Nome</span>
+      <CampoNome></CampoNome>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 3: Validação de Nome</h2>
-        <ValidaNome />
-      </div>
+      <span>4 - Campo Senha</span>
+      <CampoSenha></CampoSenha>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 4: Validação de Senha (com Botão)</h2>
-        <ValidaSenha />
-      </div>
+      <span>5 - Campo Senha com useEffect</span>
+      <CampoSenhaUseEffect></CampoSenhaUseEffect>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 5: Validação de Senha (com useEffect)</h2>
-        <ValidaSenhaEffect />
-      </div>
+      <span>6 - Campo Senha com re-render</span>
+      <CampoSenhaReRender></CampoSenhaReRender>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 6: Validação de Senha (no Re-render)</h2>
-        <ValidaSenhaRender />
-      </div>
+      <span>7 - Botão Inverter</span>
+      <BotaoInverter></BotaoInverter>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 7: Inverter Texto</h2>
-        <InverterTexto />
-      </div>
-
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 8: Radio Buttons (Female, Male, Other)</h2>
-        <RadioGenero />
-      </div>
-
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 9: Select de Frutas</h2>
-        <SelectFrutas />
-      </div>
-
-      <div style={{ marginTop: "20px" }}>
-        <h2>Item 10: Tab Content</h2>
-        <TabContent />
-      </div>
-    </main>
+      <span>8 - Radio Button Gênero</span>
+      <RadioButtonGenero></RadioButtonGenero>
+    </div>
   );
 }
